@@ -14,6 +14,8 @@ import java.sql.SQLException;
 
 public class LoginWindow {
 
+    private String username;
+    private String password;
     private boolean visible = false;
 
     @FXML
@@ -82,9 +84,8 @@ public class LoginWindow {
 
     //This method is used to reset your password
     @FXML
-    private void onResetPasswordClicked(ActionEvent action) {
-        String username = usernameField.getText();
-        String newPassword = passwordField.getText();
+    private void onResetLabelClicked(ActionEvent action) {
+        WindowManager.openPasswordResetWindow();
 
     }
 
@@ -107,7 +108,9 @@ public class LoginWindow {
 
     }
 
-
+    public String getUsername() {
+        return username;
+    }
 }
 
 

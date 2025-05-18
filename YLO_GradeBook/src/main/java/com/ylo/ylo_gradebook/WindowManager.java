@@ -56,4 +56,19 @@ public class WindowManager {
             e.printStackTrace();
         }
     }
+
+    public static void openPasswordResetWindow() {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(WindowManager.class.getResource("PasswordReset.fxml"));
+            Scene scene = new Scene(fxmlLoader.load());
+            Stage Stage = new Stage();
+            Stage.setTitle("YLO GradeBook");
+            Stage.setScene(scene);
+            Stage.getIcons().add(new Image(WindowManager.class.getResourceAsStream("/logo.png")));
+            Stage.setResizable(false);
+            Stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
