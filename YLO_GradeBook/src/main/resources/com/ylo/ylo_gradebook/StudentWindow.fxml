@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane maxHeight="1080" maxWidth="1920" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720" prefWidth="1280" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ylo.ylo_gradebook.StudentWindow">
+   <children>
+      <AnchorPane layoutX="50.0" layoutY="50.0" prefHeight="620.0" prefWidth="1180.0" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 12, 0.2, 0, 3); -fx-background-radius: 20px;">
+         <children>
+            <AnchorPane prefHeight="94.0" prefWidth="1180.0" style="-fx-background-color: rgb(3,134,238); -fx-background-radius: 20px 20px 0px 0px;">
+               <children>
+                  <ImageView fitHeight="82.0" fitWidth="181.0" layoutX="29.0" layoutY="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../logo-wihte.png" />
+                     </image>
+                  </ImageView>
+                  <Button layoutX="1006.0" layoutY="19.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="142.0" style="-fx-background-color: white; -fx-background-radius: 8px;" text="Wyloguj" textAlignment="CENTER" textFill="#0386ee">
+                     <font>
+                        <Font name="Arial Black" size="20.0" />
+                     </font></Button>
+               </children></AnchorPane>
+            <AnchorPane layoutY="94.0" prefHeight="525.0" prefWidth="1180.0">
+               <children>
+                  <AnchorPane layoutX="55.0" layoutY="42.0" prefHeight="94.0" prefWidth="432.0" style="-fx-background-color: rgb(3,134,238); -fx-background-radius: 20;">
+                     <children>
+                        <Label layoutX="120.0" layoutY="18.0" prefHeight="30.0" prefWidth="299.0" text="Imię Nazwisko" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="120.0" layoutY="50.0" prefHeight="24.0" prefWidth="83.0" text="Klasa" textFill="WHITE">
+                           <font>
+                              <Font name="Arial Black" size="16.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="77.0" fitWidth="72.0" layoutX="30.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../student.png" />
+                           </image>
+                        </ImageView>
+                     </children></AnchorPane>
+                  <AnchorPane layoutX="877.0" layoutY="274.0" prefHeight="206.0" prefWidth="247.0" style="-fx-background-color: rgb(245,245,245); -fx-background-radius: 20;">
+                     <children>
+                        <Label layoutX="82.0" layoutY="14.0" text="Statystyki">
+                           <font>
+                              <Font name="Arial Black" size="15.0" />
+                           </font>
+                        </Label>
+                     </children></AnchorPane>
+                  <AnchorPane layoutX="877.0" layoutY="40.0" prefHeight="205.0" prefWidth="247.0" style="-fx-background-color: rgb(245,245,245); -fx-background-radius: 20;">
+                     <children>
+                        <Label layoutX="78.0" layoutY="14.0" prefHeight="23.0" prefWidth="92.0" text="Informacje" textAlignment="CENTER">
+                           <font>
+                              <Font name="Arial Black" size="15.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="32.0" fitWidth="37.0" layoutX="15.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../info.png" />
+                           </image>
+                        </ImageView>
+                        <TextArea editable="false" layoutX="11.0" layoutY="48.0" prefHeight="145.0" prefWidth="223.0" promptText="Brak nowych informacji" style="-fx-border-radius: 20;">
+                           <font>
+                              <Font name="Arial" size="15.0" />
+                           </font>
+                        </TextArea>
+                     </children></AnchorPane>
+                  <TableView layoutX="54.0" layoutY="165.0" prefHeight="317.0" prefWidth="790.0" style="-fx-background-radius: 20; -fx-border-color: white; -fx-background-color: rgb(245,245,245); -fx-text-fill: white; -fx-table-header-row-background: white; -fx-background-radius: 20;">
+                    <columns>
+                      <TableColumn editable="false" prefWidth="252.99999237060547" style="-fx-background-color: rgb(3,134,238);" text="Przedmiot" />
+                      <TableColumn editable="false" prefWidth="356.5999755859375" style="-fx-background-radius: 0; -fx-background-color: rgb(3,134,238);" text="Oceny cząstkowe" />
+                        <TableColumn editable="false" minWidth="0.0" prefWidth="166.4000122070313" style="-fx-background-color: rgb(3,134,238);" text="Średnia" />
+                    </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+         </children></AnchorPane>
+   </children>
+</AnchorPane>
