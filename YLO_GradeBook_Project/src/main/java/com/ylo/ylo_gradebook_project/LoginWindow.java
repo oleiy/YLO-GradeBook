@@ -1,21 +1,20 @@
-package com.ylo.ylo_gradebook;
+package com.ylo.ylo_gradebook_project;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
-import java.awt.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-public class LoginWindow {
+public class LoginWindow implements PasswordVisible {
 
-    private String username;
-    private String password;
     private boolean visible = false;
 
     @FXML
@@ -50,11 +49,6 @@ public class LoginWindow {
 
     }
 
-    //This method is called when the "Nie pamiętasz hasła" label is clicked
-    @FXML
-    //
-
-
     // This method retrieves the role of the user from the database if the username and password are correct
     private String getUserRole(String username, String password) throws SQLException {
         String sql = "SELECT role FROM users WHERE username = ? AND password = ?";
@@ -82,16 +76,13 @@ public class LoginWindow {
         alert.showAndWait();
     }
 
-    //This method is used to reset your password
-    @FXML
-    private void onResetLabelClicked(ActionEvent action) {
+    public void onForgotPasswordLabelClicked() {
         WindowManager.openPasswordResetWindow();
-
     }
 
     //This method is used to show the password
-    @FXML
-    private void showPassword() {
+    @Override
+    public void showPassword() {
         if (visible) {
             //hiding password
             passwordTextField.setText(passwordField.getText());
@@ -105,11 +96,6 @@ public class LoginWindow {
             passwordTextField.setVisible(true);
             visible = true;
         }
-
-    }
-
-    public String getUsername() {
-        return username;
     }
 }
 

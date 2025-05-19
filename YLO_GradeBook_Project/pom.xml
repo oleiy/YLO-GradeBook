@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.ylo</groupId>
-    <artifactId>YLO_GradeBook</artifactId>
+    <artifactId>YLO_GradeBook_Project</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <name>YLO_GradeBook</name>
+    <name>YLO_GradeBook_Project</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -133,7 +133,8 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.ylo.ylo_gradebook/com.ylo.ylo_gradebook.Main</mainClass>
+                            <mainClass>com.ylo.ylo_gradebook_project/com.ylo.ylo_gradebook_project.HelloApplication
+                            </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

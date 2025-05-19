@@ -1,12 +1,10 @@
-package com.ylo.ylo_gradebook;
+package com.ylo.ylo_gradebook_project;
 
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
-
-import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class WindowManager {
@@ -57,6 +55,7 @@ public class WindowManager {
         }
     }
 
+    // Method to open the Password Reset Window
     public static void openPasswordResetWindow() {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(WindowManager.class.getResource("PasswordReset.fxml"));
@@ -71,4 +70,5 @@ public class WindowManager {
             e.printStackTrace();
         }
     }
+
 }

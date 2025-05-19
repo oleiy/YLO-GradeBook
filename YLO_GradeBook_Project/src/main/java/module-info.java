@@ -13,6 +13,6 @@ module com.ylo.ylo_gradebook {
     requires java.desktop;
     requires java.sql;
 
-    opens com.ylo.ylo_gradebook to javafx.fxml;
-    exports com.ylo.ylo_gradebook;
+    opens com.ylo.ylo_gradebook_project to javafx.fxml;
+    exports com.ylo.ylo_gradebook_project;
 }

@@ -1,4 +1,4 @@
-package com.ylo.ylo_gradebook;
+package com.ylo.ylo_gradebook_project;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
