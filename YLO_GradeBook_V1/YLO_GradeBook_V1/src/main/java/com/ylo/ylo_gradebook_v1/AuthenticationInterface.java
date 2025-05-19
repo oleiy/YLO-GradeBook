@@ -1,0 +1,10 @@
+package com.ylo.ylo_gradebook_v1;
+
+import javafx.event.ActionEvent;
+import javafx.scene.input.MouseEvent;
+
+public interface AuthenticationInterface {
+    void showPassword();
+    void focusTraversableOnField(MouseEvent event);
+}
+
