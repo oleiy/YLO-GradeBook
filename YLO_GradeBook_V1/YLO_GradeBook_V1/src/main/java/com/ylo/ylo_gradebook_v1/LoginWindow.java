@@ -88,7 +88,7 @@ public class LoginWindow extends SessionController implements AuthenticationInte
     }
 
     @Override
-    public void focusTraversableOnField(MouseEvent event) {
+    public void enableFieldFocus(MouseEvent event) {
         usernameField.setFocusTraversable(true);
         passwordField.setFocusTraversable(true);
     }

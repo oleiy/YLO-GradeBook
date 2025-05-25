@@ -42,13 +42,20 @@ public abstract class SessionController {
         alert.setTitle(title);
         alert.setHeaderText(null);
         alert.setContentText(content);
+
+        ButtonType yesButton = new ButtonType("Tak", ButtonType.OK.getButtonData());
+        ButtonType noButton = new ButtonType("Nie", ButtonType.CANCEL.getButtonData());
+        alert.getButtonTypes().setAll(yesButton, noButton);
+
         Stage owner = getCurrentStage();
         if (owner != null) {
             alert.initOwner(owner);
         }
+
         Optional<ButtonType> result = alert.showAndWait();
-        return result.isPresent() && result.get() == ButtonType.OK;
+        return result.isPresent() && result.get() == yesButton;
     }
+
 
     public void onLogoutButtonClicked(MouseEvent event) {
         boolean confirmed = showConfirmation("Potwierdzenie wylogowania", "Czy na pewno chcesz się wylogować?");
@@ -73,6 +80,21 @@ public abstract class SessionController {
         }
         return null;
     }
+
+    public void showInfoCheckOk(String title, String content) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+
+        Stage owner = getCurrentStage();
+        if (owner != null) {
+            alert.initOwner(owner);
+        }
+
+        alert.showAndWait(); // czeka na kliknięcie OK
+    }
+
 
 
 }

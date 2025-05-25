@@ -5,6 +5,6 @@ import javafx.scene.input.MouseEvent;
 
 public interface AuthenticationInterface {
     void showPassword();
-    void focusTraversableOnField(MouseEvent event);
+    void enableFieldFocus(MouseEvent event);
 }
 
