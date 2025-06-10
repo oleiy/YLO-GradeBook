@@ -4,13 +4,13 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
+import javafx.scene.input.MouseEvent;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class PasswordReset extends BaseAlert implements com.ylo.ylo_gradebook_v1.PasswordVisible {
+public class PasswordReset extends SessionController implements AuthenticationInterface {
 
     private boolean visible = false;
 
@@ -24,7 +24,6 @@ public class PasswordReset extends BaseAlert implements com.ylo.ylo_gradebook_v1
     private TextField hiddenPasswordField1;
     @FXML
     private TextField hiddenPasswordField2;
-    private Stage primaryStage;
 
 
     // This method is called when the "Reset Password" button is clicked
@@ -33,41 +32,46 @@ public class PasswordReset extends BaseAlert implements com.ylo.ylo_gradebook_v1
         String username = usernameField.getText().trim();
         String newPassword = visible ? hiddenPasswordField1.getText() : passwordField.getText();
         String confirmPassword = visible ? hiddenPasswordField2.getText() : passwordFieldConfirm.getText();
-
         if (username.isEmpty()) {
-            BaseAlert.showWarning("Brak nazwy użytkownika", "Wprowadź nazwę użytkownika, aby zresetować hasło.");
+            showWarning("Brak nazwy użytkownika", "Wprowadź nazwę użytkownika, aby zresetować hasło.");
             return;
         }
-
         if (!doesUserExist(username)) {
-            BaseAlert.showError("Nie znaleziono użytkownika", "Podany użytkownik nie istnieje.");
+            showError("Nie znaleziono użytkownika", "Podany użytkownik nie istnieje.");
             return;
         }
-
         if (newPassword.isEmpty() || confirmPassword.isEmpty()) {
-            BaseAlert.showWarning("Brak hasła", "Wypełnij oba pola hasła.");
+            showWarning("Brak hasła", "Wypełnij oba pola hasła.");
             return;
         }
-
         if (!newPassword.equals(confirmPassword)) {
-            BaseAlert.showError("Nieprawidłowe hasła", "Hasła nie są identyczne.");
+            showError("Nieprawidłowe hasła", "Hasła nie są identyczne.");
             return;
         }
 
+        boolean confirmed = showConfirmation(
+                "Potwierdzenie resetowania hasła",
+                "Czy na pewno chcesz zresetować hasło?\nPo zmianie będziesz musiał zalogować się ponownie."
+        );
+
+        if (!confirmed) {
+            showInfo("Anulowano", "Resetowanie hasła zostało anulowane.");
+            return;
+        }
         try {
             updatePassword(newPassword, username);
-            BaseAlert.showInfo("Sukces", "Hasło zostało zaktualizowane.");
+            showInfoCheckOk("Sukces", "Hasło zostało zaktualizowane pomyślnie.");
             ViewLoadingManager.loadLoginView();
         } catch (SQLException e) {
             e.printStackTrace();
-            BaseAlert.showError("Błąd bazy danych", "Nie udało się zaktualizować hasła.");
+            showError("Błąd bazy danych", "Nie udało się zaktualizować hasła.");
         }
     }
 
     @FXML
     private void updatePassword(String newPassword, String username) throws SQLException {
         String sql = "UPDATE users SET password = ? WHERE username = ?";
-        try (Connection conn =  com.ylo.ylo_gradebook_v1.DataBaseConnection.getConnection();
+        try (Connection conn = com.ylo.ylo_gradebook_v1.DataBaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
             stmt.setString(1, newPassword);
             stmt.setString(2, username);
@@ -104,6 +108,13 @@ public class PasswordReset extends BaseAlert implements com.ylo.ylo_gradebook_v1
         }
     }
 
+    @Override
+    public void enableFieldFocus(MouseEvent event) {
+        usernameField.setFocusTraversable(true);
+        passwordField.setFocusTraversable(true);
+        passwordFieldConfirm.setFocusTraversable(true);
+    }
+
     // This method checks if the user exists in the database
     private boolean doesUserExist(String username) {
         String sql = "SELECT 1 FROM users WHERE username = ?";
@@ -117,5 +128,12 @@ public class PasswordReset extends BaseAlert implements com.ylo.ylo_gradebook_v1
         }
     }
 
+
+    public void onCancelLabelClicked(MouseEvent event) {
+        boolean confirmed = showConfirmation("Anulowanie", "Czy na pewno chcesz anulować resetowanie hasła?");
+        if (confirmed) {
+            ViewLoadingManager.loadLoginView();
+        }
+    }
 
 }

@@ -21,6 +21,7 @@ public class ViewLoadingManager {
             primaryStage.setScene(scene);
             primaryStage.getIcons().add(new Image(ViewLoadingManager.class.getResourceAsStream("/logo.png")));
             primaryStage.setResizable(false);
+            primaryStage.centerOnScreen();
             primaryStage.show();
         } catch (Exception e) {
             e.printStackTrace();
@@ -38,10 +39,11 @@ public class ViewLoadingManager {
             FXMLLoader loader = new FXMLLoader(ViewLoadingManager.class.getResource("PasswordReset.fxml"));
             AnchorPane resetPasswordView = loader.load();
             resetPasswordView.setPrefWidth(568);
-            resetPasswordView.setPrefHeight(660);
+            resetPasswordView.setPrefHeight(640);
             mainWindow.contentPane.getChildren().setAll(resetPasswordView);
             Stage stage = (Stage) mainWindow.contentPane.getScene().getWindow();
             stage.sizeToScene();
+            stage.centerOnScreen();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -62,6 +64,7 @@ public class ViewLoadingManager {
             mainWindow.contentPane.getChildren().setAll(loginView);
             Stage stage = (Stage) mainWindow.contentPane.getScene().getWindow();
             stage.sizeToScene();
+            stage.centerOnScreen();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -75,13 +78,14 @@ public class ViewLoadingManager {
                 return;
             }
 
-            FXMLLoader loader = new FXMLLoader(ViewLoadingManager.class.getResource("StudentView.fxml"));
+            FXMLLoader loader = new FXMLLoader(ViewLoadingManager.class.getResource("StudentWindow.fxml"));
             AnchorPane studentView = loader.load();
             studentView.setPrefWidth(1280);
             studentView.setPrefHeight(720);
             mainWindow.contentPane.getChildren().setAll(studentView);
             Stage stage = (Stage) mainWindow.contentPane.getScene().getWindow();
             stage.sizeToScene();
+            stage.centerOnScreen();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -96,16 +100,22 @@ public class ViewLoadingManager {
                 return;
             }
 
-            FXMLLoader loader = new FXMLLoader(ViewLoadingManager.class.getResource("TeacherView.fxml"));
+            FXMLLoader loader = new FXMLLoader(ViewLoadingManager.class.getResource("TeacherWindow.fxml"));
             AnchorPane teacherView = loader.load();
             teacherView.setPrefWidth(1280);
             teacherView.setPrefHeight(720);
             mainWindow.contentPane.getChildren().setAll(teacherView);
             Stage stage = (Stage) mainWindow.contentPane.getScene().getWindow();
             stage.sizeToScene();
+            stage.centerOnScreen();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
+    public static MainWindow getMainWindow() {
+        return mainWindow;
+    }
+
 }

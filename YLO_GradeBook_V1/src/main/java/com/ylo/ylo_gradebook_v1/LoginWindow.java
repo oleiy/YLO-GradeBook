@@ -1,13 +1,11 @@
 package com.ylo.ylo_gradebook_v1;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
+import models.Classes;
+import models.Users;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,7 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
-public class LoginWindow implements PasswordVisible {
+public class LoginWindow extends SessionController implements AuthenticationInterface {
 
     private boolean visible = false;
 
@@ -30,52 +28,61 @@ public class LoginWindow implements PasswordVisible {
     @FXML
     private void onLoginClicked(ActionEvent action) {
         String username = usernameField.getText();
-        String password = passwordField.getText();
+        String password = visible ? passwordTextField.getText() : passwordField.getText();
 
         try {
-            String role = getUserRole(username, password);
+            Users user = getUserData(username, password);
 
-            if (role == null) {
-                showAlert("Błąd logowania", "Nieprawidłowa nazwa użytkownika lub hasło.");
-            } else if (role.equals("TEACHER")) {
-                ViewLoadingManager.loadTeacherView();
-            } else if (role.equals("STUDENT")) {
-                ViewLoadingManager.loadStudentView();
+            if (user == null) {
+                showError("Błąd logowania", "Niepoprawna nazwa użytkownika lub hasło.");
             } else {
-                showAlert("Błąd", "Nieznana rola użytkownika.");
+                Session.setLoggedUser(user); // Zapisz użytkownika w sesji
+
+                if (user.getRole().equals("TEACHER")) {
+                    ViewLoadingManager.loadTeacherView();
+                } else if (user.getRole().equals("STUDENT")) {
+                    ViewLoadingManager.loadStudentView();
+                } else {
+                    showError("Błąd logowania", "Nieznana rola użytkownika.");
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            showAlert("Błąd", "Wystąpił błąd podczas logowania: ");
+            showError("Błąd logowania", "Wystąpił błąd podczas logowania.");
         }
-
     }
 
+
     // This method retrieves the role of the user from the database if the username and password are correct
-    private String getUserRole(String username, String password) throws SQLException {
-        String sql = "SELECT role FROM users WHERE username = ? AND password = ?";
+    private Users getUserData(String username, String password) throws SQLException {
+        String sql = "SELECT id, username, password, first_name, last_name, role, class_id FROM users WHERE username = ? AND password = ?";
+
         try (Connection conn = DataBaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
+
             stmt.setString(1, username);
             stmt.setString(2, password);
             ResultSet rs = stmt.executeQuery();
+
             if (rs.next()) {
-                return rs.getString("role");
+                int classId = rs.getInt("class_id");
+                Classes userClass = new Classes(classId); // lub new Classes(classId, "3B") jeśli masz nazwę
+
+                return new Users(
+                        rs.getInt("id"),
+                        rs.getString("username"),
+                        rs.getString("password"),
+                        rs.getString("first_name"),
+                        rs.getString("last_name"),
+                        rs.getString("role"),
+                        userClass // ⬅️ tu używasz nowego konstruktora
+                );
             } else {
                 return null;
             }
         }
-
     }
 
-    // This method shows an alert dialog with the specified title and content
-    private void showAlert(String title, String content) {
-        Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(content);
-        alert.showAndWait();
-    }
 
     @FXML
     public void onForgotPasswordLabelClicked() {
@@ -99,6 +106,13 @@ public class LoginWindow implements PasswordVisible {
             visible = true;
         }
     }
+
+    @Override
+    public void enableFieldFocus(MouseEvent event) {
+        usernameField.setFocusTraversable(true);
+        passwordField.setFocusTraversable(true);
+    }
+
 
 }
 

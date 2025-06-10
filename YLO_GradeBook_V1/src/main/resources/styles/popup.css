@@ -1,0 +1,88 @@
+.root {
+    -fx-background-color: rgb(245, 245, 245);
+}
+
+* {
+    -fx-font-family: "Poppins Bold";
+}
+
+.backgound {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 12, 0.2, 0, 3);
+    -fx-background-radius: 20px;
+}
+
+.combo-box {
+    -fx-background-color: white;
+    -fx-padding: 3;
+    -fx-border-color: lightgray;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-font-size: 13px;
+}
+
+.datePicker {
+    -fx-background-color: white;
+    -fx-padding: 0px;
+    -fx-border-color: lightgray;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-font-size: 13px;
+}
+
+.datePicker .arrow-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0 12 0 12;
+}
+
+.text-field {
+    -fx-background-color: white;
+    -fx-padding: 8px 0px 8px 12px;
+    -fx-border-color: lightgray;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-font-size: 13px;
+    -fx-text-alignment: center;
+}
+
+.button {
+    -fx-background-color: rgb(3,134,238);
+    -fx-background-radius: 10px;
+    -fx-text-fill: white;
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+}
+
+.button:hover {
+    -fx-cursor: hand;
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+.label {
+    -fx-font-size: 14px;
+}
+
+.gird-pane {
+    -fx-hgap: 10px; /* Odstęp poziomy między elementami */
+    -fx-vgap: 5px; /* Odstęp pionowy między elementami */
+}
+
+.error-label {
+    -fx-text-fill: red;
+    -fx-font-size: 12px;
+    -fx-alignment: center;
+
+}
+
+.textArea {
+    -fx-background-color: white;
+    -fx-padding: 2px;
+    -fx-border-color: lightgray;
+    -fx-background-radius: 10px;
+    -fx-border-radius: 10px;
+    -fx-font-size: 13px;
+    -fx-text-alignment: center;
+    -fx-background-insets: 0; /* Usuwa wewnętrzne marginesy */
+    -fx-background-color: transparent, white; /* Zapobiega efektowi cienia */
+}

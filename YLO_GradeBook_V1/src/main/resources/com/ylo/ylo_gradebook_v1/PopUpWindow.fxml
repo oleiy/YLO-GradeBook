@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane prefHeight="630.0" prefWidth="560.0" styleClass="root" stylesheets="@../../../styles/popup.css"
+            xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.ylo.ylo_gradebook_v1.PopUpWindow">
+    <children>
+        <AnchorPane fx:id="gradePane" layoutX="58.0" layoutY="56.0" prefHeight="518.0" prefWidth="444.0"
+                    styleClass="backgound">
+            <children>
+                <Button fx:id="addGradeButton" layoutX="128.0" layoutY="427.0" mnemonicParsing="false"
+                        onAction="#onAddGradeButtonClicked" prefHeight="46.0" prefWidth="188.0" text="Dodaj ocenę"/>
+                <ImageView fitHeight="97.0" fitWidth="188.0" layoutX="128.0" layoutY="40.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@../../../logo_noborder.png"/>
+                    </image>
+                </ImageView>
+                <GridPane layoutX="88.0" layoutY="150.0" prefHeight="242.0" prefWidth="267.0">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="162.20001220703125" minWidth="10.0"
+                                           prefWidth="74.2000244140625"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="260.6000518798828" minWidth="10.0"
+                                           prefWidth="183.7999755859375"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <Label text="Klasa:"/>
+                        <ComboBox fx:id="classComboBox" prefHeight="35.0" prefWidth="200.0" promptText="Wybierz klasę"
+                                  styleClass="check-box" GridPane.columnIndex="1"/>
+                        <ComboBox fx:id="studentComboBox" prefHeight="35.0" prefWidth="200.0"
+                                  promptText="Wybierz ucznia" styleClass="check-box" GridPane.columnIndex="1"
+                                  GridPane.rowIndex="1"/>
+                        <ComboBox fx:id="subjectComboBox" prefHeight="35.0" prefWidth="200.0"
+                                  promptText="Wybierz przedmiot" styleClass="check-box" GridPane.columnIndex="1"
+                                  GridPane.rowIndex="2"/>
+                        <ComboBox fx:id="typeComboBox" prefHeight="35.0" prefWidth="200.0" promptText="Wybierz typ"
+                                  styleClass="check-box" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                        <ComboBox fx:id="gradeComboBox" prefHeight="35.0" prefWidth="200.0" promptText="Wybierz ocenę"
+                                  styleClass="check-box" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                        <Label text="Przedmiot:" GridPane.rowIndex="2"/>
+                        <Label text="Uczeń:" GridPane.rowIndex="1"/>
+                        <Label text="Typ:" GridPane.rowIndex="3"/>
+                        <Label text="Ocena:" GridPane.rowIndex="4"/>
+                    </children>
+                </GridPane>
+                <Label fx:id="errorLabelG" layoutX="84.0" layoutY="398.0" prefHeight="18.0" prefWidth="276.0"
+                       styleClass="error-label" textAlignment="CENTER"/>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="negativeNotePane" layoutX="58.0" layoutY="56.0" prefHeight="518.0" prefWidth="444.0"
+                    styleClass="backgound" visible="false">
+            <children>
+                <Button fx:id="addNeggativeNote" layoutX="128.0" layoutY="427.0" mnemonicParsing="false"
+                        onAction="#onAddNegativeNoteClicked" prefHeight="46.0" prefWidth="188.0" text="Dodaj uwagę"/>
+                <GridPane layoutX="94.0" layoutY="149.0" prefHeight="242.0" prefWidth="256.0" styleClass="gird-pane">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="116.4000244140625" minWidth="10.0"
+                                           prefWidth="58.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="186.0" minWidth="10.0" prefWidth="186.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="61.20001831054687" minHeight="10.0" prefHeight="32.39999999999999"
+                                        vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="146.0" minHeight="117.19998168945312" prefHeight="60.0"
+                                        vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <Label text="Uczeń:" GridPane.rowIndex="1"/>
+                        <Label text="Klasa:"/>
+                        <ComboBox fx:id="chooseClassNN" prefHeight="35.0" prefWidth="200.0" promptText="Wybierz klasę"
+                                  styleClass="combo-box" GridPane.columnIndex="1"/>
+                        <ComboBox fx:id="chooseStudentNN" prefHeight="35.0" prefWidth="200.0"
+                                  promptText="Wybierz ucznia" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                            <styleClass>
+                                <String fx:value="check-box"/>
+                                <String fx:value="combo-box"/>
+                            </styleClass>
+                        </ComboBox>
+                        <Label text="Punkty:" GridPane.rowIndex="2"/>
+                        <TextField fx:id="pointsNN" prefHeight="35.0" prefWidth="200.0"
+                                   promptText="Podaj liczbę punktów" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        <Label text="Treść:" GridPane.rowIndex="3"/>
+                        <TextArea fx:id="textAreaNN" prefHeight="60.0" prefWidth="186.0" promptText="Napisz treść uwagi"
+                                  styleClass="textArea" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                    </children>
+                </GridPane>
+                <ImageView fitHeight="97.0" fitWidth="188.0" layoutX="128.0" layoutY="40.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@../../../logo_noborder.png"/>
+                    </image>
+                </ImageView>
+                <Label fx:id="errorLabelNN" layoutX="84.0" layoutY="400.0" prefHeight="18.0" prefWidth="276.0"
+                       styleClass="error-label"/>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="deadLinePane" layoutX="58.0" layoutY="56.0" prefHeight="518.0" prefWidth="444.0"
+                    styleClass="backgound" visible="false">
+            <children>
+                <Button fx:id="addNewDeadLine" layoutX="128.0" layoutY="427.0" mnemonicParsing="false"
+                        onAction="#onAddDeadlineButtonClicked" prefHeight="46.0" prefWidth="188.0" text="Dodaj termin"/>
+                <GridPane layoutX="94.0" layoutY="148.0" prefHeight="242.0" prefWidth="256.0" styleClass="gird-pane">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="116.4000244140625" minWidth="10.0"
+                                           prefWidth="67.2"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="203.19998779296873" minWidth="10.0"
+                                           prefWidth="179.2"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="61.20001831054687" minHeight="10.0" prefHeight="32.39999999999999"
+                                        vgrow="SOMETIMES"/>
+                        <RowConstraints fillHeight="false" maxHeight="60.0" minHeight="80.0" prefHeight="60.0"/>
+                    </rowConstraints>
+                    <children>
+                        <Label text="Typ:" GridPane.rowIndex="2"/>
+                        <Label text="Klasa:"/>
+                        <ComboBox fx:id="chooseClassDL" prefHeight="35.0" prefWidth="200.0" promptText="Wybierz klasę"
+                                  styleClass="check-box" GridPane.columnIndex="1"/>
+                        <ComboBox fx:id="chooseTypeDL" prefHeight="35.0" prefWidth="200.0" promptText="Wybierz typ"
+                                  styleClass="check-box" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        <Label text="Data:" GridPane.rowIndex="3"/>
+                        <Label text="Opis:" GridPane.rowIndex="4"/>
+                        <TextArea fx:id="descrpDL" prefHeight="80.0" prefWidth="179.0" promptText="Napisz opis terminu"
+                                  styleClass="textArea" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                        <DatePicker fx:id="dateDL" prefHeight="35.0" prefWidth="200.0" styleClass="datePicker"
+                                    GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                        <ComboBox fx:id="chooseSubjectDL" prefHeight="35.0" prefWidth="206.0"
+                                  promptText="Wybierz przedmiot" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <Label prefHeight="20.0" prefWidth="75.0" text="Przedmiot:" GridPane.rowIndex="1"/>
+                    </children>
+                </GridPane>
+                <ImageView fitHeight="97.0" fitWidth="188.0" layoutX="128.0" layoutY="40.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@../../../logo_noborder.png"/>
+                    </image>
+                </ImageView>
+                <Label fx:id="errorLabelDL" layoutX="84.0" layoutY="400.0" prefHeight="18.0" prefWidth="276.0"
+                       styleClass="error-label"/>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="notePane" layoutX="58.0" layoutY="56.0" prefHeight="518.0" prefWidth="444.0"
+                    styleClass="backgound" visible="false">
+            <children>
+                <Button layoutX="128.0" layoutY="427.0" mnemonicParsing="false" onAction="#onAddNoteButtonClicked"
+                        prefHeight="46.0" prefWidth="188.0" text="Dodaj notatkę"/>
+                <GridPane layoutX="94.0" layoutY="148.0" prefHeight="242.0" prefWidth="256.0" styleClass="gird-pane">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="116.4000244140625" minWidth="10.0"
+                                           prefWidth="41.60001220703125"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="203.19998779296873" minWidth="10.0"
+                                           prefWidth="203.19998779296873"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="85.60001220703126" minHeight="10.0" prefHeight="39.20001831054688"
+                                        vgrow="SOMETIMES"/>
+                        <RowConstraints maxHeight="197.59998168945316" minHeight="117.19998168945312"
+                                        prefHeight="197.59998168945316" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <Label text="Tytuł:"/>
+                        <Label text="Treść:" GridPane.rowIndex="1"/>
+                        <TextArea fx:id="textAreaN" prefHeight="169.0" prefWidth="203.0"
+                                  promptText="Napisz treść notatki" styleClass="check-box" GridPane.columnIndex="1"
+                                  GridPane.rowIndex="1"/>
+                        <TextField fx:id="titleN" promptText="Tytuł notatki" GridPane.columnIndex="1"/>
+                    </children>
+                </GridPane>
+                <ImageView fitHeight="97.0" fitWidth="188.0" layoutX="128.0" layoutY="40.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="@../../../logo_noborder.png"/>
+                    </image>
+                </ImageView>
+                <Label fx:id="errorLabelN" layoutX="84.0" layoutY="399.0" prefHeight="18.0" prefWidth="276.0"
+                       styleClass="error-label" textAlignment="CENTER"/>
+            </children>
+        </AnchorPane>
+    </children>
+</AnchorPane>

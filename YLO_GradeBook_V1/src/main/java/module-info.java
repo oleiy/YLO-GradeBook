@@ -10,7 +10,10 @@ module com.ylo.ylo_gradebook_v1 {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires com.fasterxml.jackson.databind;
     requires java.sql;
+
+    opens models to javafx.base;
 
     opens com.ylo.ylo_gradebook_v1 to javafx.fxml;
     exports com.ylo.ylo_gradebook_v1;

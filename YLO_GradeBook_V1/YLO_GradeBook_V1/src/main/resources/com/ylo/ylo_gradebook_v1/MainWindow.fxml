@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.layout.*?>
-
-<AnchorPane prefWidth="568" prefHeight="600" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ylo.ylo_gradebook_v1.MainWindow">
-    <children>
-        <AnchorPane fx:id="contentPane" prefWidth="568" prefHeight="600" />
-    </children>
-</AnchorPane>
