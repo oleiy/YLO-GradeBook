@@ -1,0 +1,234 @@
+\chapter{Opis założeń projektu}
+\label{cha:opisZałożeńProjektu}
+
+%---------------------------------------------------------------------------
+
+\section{Cel projektu}
+\label{sec:celProjektu}
+Celem projektu jest opracowanie aplikacji desktopowej w języku Java, pełniącej funkcję dziennika elektroniczny. System umożliwia intuicyjne zarządzanie ocenami oraz terminami, a także pozwala na prowadzenie własnych notatek i wyświetlaniem statystyk. Po zalogowaniu do systemu ukazuje się przejrzysty i nowoczesny interfejs graficzny użytkownika, zaprojektowany z myślą o estetyce i prostocie. Dla nauczyciela i ucznia przygotowano osobny widok, który przemyślano, w taki sposób, aby funkcje dostosowane do ich roli były łatwo dostępne i komfortowe w obsłudze.
+
+Projekt YLO GradeBook odpowiada na problem braku nowoczesnych, elastycznych i prostych w obsłudze aplikacji desktopowych działających jako dziennik elektroniczny. Dostępne na rynku rozwiązania często przeładowane są zbędnymi funkcjami i nie spełniają wymagań i potrzeb dzisiejszego użytkownika, co utrudnia codzienną pracę. 
+
+YLO GradeBook cechuje się przejrzystym interfejsem, który zachęca użytkownika do korzystania z aplikacji. W przeciwieństwie do wielu istniejących rozwiązań posiadających przestarzały interfejs, aplikacja oferuje dokładnie to, co niezbędne. Projekt realizować ma najpotrzebniejsze funkcje dziennika elektronicznego w sposób jasny i przejrzysty dla każdego użytkownika, niezależnie od jego doświadczenia z pracą przy komputerze co umożliwia łatwe korzystanie z aplikacji nawet dla osób, które nie są przekonane do elektronicznego rozwiązania omawianego problemu. Dodawanie ocen czy terminów odbywa się w intuicyjny sposób, aby realizacja zadania była szybka, komfortowa i bezproblemowa. Dodatkowo system został zaprojektowany w taki sposób, aby w przyszłości możliwe było wprowadzenie nowych funkcjonalności zgodnych z potrzebami placówek edukacyjnych.
+%---------------------------------------------------------------------------
+
+\section{Sposób realizacji projektu}
+\label{sec:SposóbRealizacjiProjektu}
+
+Realizacja projektu przebiegać będzie etapowo:
+\begin{itemize}
+      \item Analiza wymagań oraz zaprojektowanie najpotrzebniejszej funkcjonalności,
+      \item Zaprojektowanie graficznego interfejsu na podstawie przyjętych założeń,
+      \item Zaprojektowanie struktury bazy danych (MySQL), tak aby wszystkie dane przechowywane były w sposób klarowny i optymalny dla realizowanych funkcji,
+      \item Stworzenie graficznego interfejsu z wykorzystaniem interfejsu JavaFX,
+      \item Implementacja logiki aplikacji i połączenie z bazą danych,
+      \item Testowanie funkcjonalności oraz obsługa ewentualnych błędów,
+      \item Opracowanie dokumentacji projektu zawierającej opis założeń, celu, architektury i sposobu korzystania z aplikacji.
+\end{itemize}
+Wynikiem realizacji projektu będzie w pełni działająca i zgodna z założeniami aplikacja desktopowa YLO GradeBook umożliwiająca prowadzenie dziennika elektronicznego na potrzeby szkół. Projekt kładzie nacisk na spersonalizowaną funkcjonalność, czytelność i intuicyjną obsługę dostosowaną do potrzeb zarówno nauczycieli, jak i uczniów.
+
+\section{Wymagania funkcjonalne}
+\label{sec:WymaganiaFunkcjonalne}
+W projekcie zastosowano podział na dwie grupy użytkowników, które posiadają przypisane uprawnienia i funkcjonalności.
+
+\subsection{Logowanie}
+\label{sec:Logowanie}
+\begin{itemize}
+      \item System umożliwia logowanie się do aplikacji za pomocą unikalnej nazwy użytkownika i hasła przechowywanego w bazie danych. Podczas logowania hasło jest ukryte, natomiast użytkownik może je chwilowo ukazać, korzystając z intuicyjnego przycisku do wyświetlenia hasła.
+      \item Po zalogowaniu się system rozpoznaje, do której grupy należy użytkownik i otwiera odpowiedni interfejs graficzny dostosowany do jego roli.
+      \item System od momentu zalogowania przechowuje aktualnie zalogowanego użytkownika, aż do momentu zamknięcia aplikacji.
+      \item Użytkownik może zmienić swoje hasło (w przyszłości funkcja ta zostanie wyposażona w odpowiednie zabezpieczenia).
+\end{itemize}
+
+\subsection{Funkcjonalność dla grupy nauczyciel}
+\label{nauczyciel}
+Nauczyciel posiada dostęp do rozszerzonych funkcji administracyjnych: 
+
+\begin{itemize}
+      \item Możliwość logowania się do systemu za pomocą unikalnej nazwy użytkownika oraz hasła (na potrzeby realizacji projektu założono, iż konta użytkowników istnieją już w bazie danych)
+      \item Przełączanie widoków aplikacji za pomocą przycisków w panelu nawigacyjnym po lewej stronie interfejsu,
+      \item Wyświetlanie listy uczniów przypisanych do wybranej klasy,
+      \item Przeglądanie ocen uczniów wybranej klasy oraz dla wybranego przedmiotu wraz z obliczeniem średnich,
+      \item Przeglądanie osobistych notatek oraz możliwość ich usuwania,
+      \item Przeglądanie danych osobistych przypisanych do jego konta,
+      \item Możliwość zmiany hasła,
+      \item Dodawanie ocen dla wybranych uczniów konkretnej klasy,
+      \item Dodawania swoich notatek osobistych,
+      \item Dodawanie terminów wydarzeń dla wybranej klasy,
+      \item Dodawania uwag dla wybranego ucznia
+      \item Możliwość wylogowania się z systemu.
+\end{itemize}
+
+\subsection{Funkcjonalność dla grupy uczeń}
+\label{uczeń}
+Uczeń posiada ograniczoną funkcjonalność w stosunku do nauczyciela. Posiada jednakże możliwości, które zostały zaimplementowane tylko i wyłącznie dla jego roli:
+
+\begin{itemize}
+      \item Możliwość logowania się do systemu za pomocą unikalnej nazwy użytkownika oraz hasła (na potrzeby realizacji projektu założono iż konta użytkowników istnieją już w bazie danych)
+      \item Przełączanie widoków aplikacji za pomocą przycisków w panelu nawigacyjnym po lewej stronie interfejsu,
+      \item Wyświetlanie powiadomień związanych z nowymi ocenami oraz terminami, które zostały dodane w przeciągu ostatnich 7 dni,
+      \item Wyświetlanie ogólnej średniej ucznia,
+      \item Wyświetlanie ocen, które zostały dodane w przeciągu ostatnich 7 dni,
+      \item Przeglądanie wszystkich ocen z podziałem na przedmioty oraz wyliczenie średniej dla każdego z nich,
+      \item Przeglądanie osobistych notatek oraz możliwość ich usuwania,
+      \item Przeglądanie terminów wydarzeń, które zostały przydzielone do klasy, do której należy,
+      \item Przeglądanie uwag, które zostały przypisane przez nauczyciela do jego konta,
+      \item Dodawania swoich notatek osobistych,
+      \item Przeglądanie danych osobistych przypisanych do jego konta,
+      \item Możliwość zmiany hasła,
+      \item Możliwość wylogowania się z systemu.
+\end{itemize}
+
+\subsection{Opis poszczególnych danych}
+\label{opisDanych}
+Dane zostały zaprojektowane, tak aby posiadały swoje cechy, które umożliwiają ich rozróżnianie, sortowanie oraz grupowanie. Dzięki temu aplikacja zachowuje sprawną organizację informacji i realizację funkcji.
+
+
+\subsubsection{Oceny}
+\label{oceny}
+Podczas dodawania ocen przez nauczyciela pierwszym krokiem jest wybranie klasy, a następnie ucznia, któremu przypisana zostanie ocena. Następnie wybierany jest przedmiot z listy, która znajduje się w bazie danych oraz typ, gdzie do wyboru są opcje takie jak: sprawdzian, kartkówka, odpowiedź ustna, zadanie, inne. Ostatnim elementem jest wybranie oceny w systemie 1.0 - 6.0. 
+
+Ocena składa się następujących elementów:
+\begin{itemize}
+      \item Klasa,
+      \item Uczeń,
+      \item Przedmiot,
+      \item Typ,
+      \item Wartość oceny.
+\end{itemize}
+
+\subsubsection{Notatki osobiste}
+\label{notatki}
+Użytkownik niezależnie od swojej roli może dodawać swoje notatki. W pierwszym kroku podaje tytuł notatki, a następnie jej treść. Po jej dodaniu notatka umieszczana jest w bazie danych i zostaje automatycznie przypisana do zalogowanego użytkownika bez konieczności wprowadzania jej właściciela.
+
+Notatka zawiera:
+\begin{itemize}
+      \item Tytuł,
+      \item Treść,
+      \item Właściciela (ustalanego automatycznie).
+\end{itemize}
+
+\subsubsection{Uwagi}
+\label{uwagi}
+Dodając uwagę, nauczyciel wybiera klasę, a następnie ucznia, którego uwaga dotyczy. Następnie wprowadza liczbę punktów (ujemnych lub dodatnich w zależności od tego, czy uwaga jest pozytywna czy negatywna). Ostatnim elementem jest treść uwagi, która ograniczona jest do 60 znaków. 
+
+Uwaga zawiera:
+\begin{itemize}
+      \item Klasę,
+      \item Ucznia,
+      \item Liczbę punktów (ujemnych lub dodatnich)
+      \item Treśći uwagi.
+\end{itemize}
+
+\subsubsection{Terminy}
+\label{terminy}
+Nauczyciel, dodając nowy termin, proszony jest o wybór klasy, do której chciałby przypisać nowe wydarzenie. Następnie wybiera przedmiot z listy, która znajduje się w bazie danych, W kolejnym kroku wybiera typ (wydarzenie, sprawdzian, kartkówka, zadanie). Podaje datę wydarzenia, korzystając z pomocniczej kontrolki oraz podaje krótki opis.Uwaga zawiera:
+
+Termin składa się z następujących elementów:
+\begin{itemize}
+      \item Klasa,
+      \item Przedmiot,
+      \item Typ wydarzenia,
+      \item Data końcowa,
+      \item Opis.
+\end{itemize}
+
+\newpage
+\section{Wymagania niefunkcjonalne}
+\label{wymaganiaNiefunkcjonalne}
+
+\subsection{Środowisko testowe}
+\label{środowiskoTestowe}
+Testy projektu przeprowadzone zostały w środowisku o następującej konfiguracji:
+\begin{itemize}
+      \item System operacyjny: Windows 11 Pro
+      \item Processor: Intel® Core™ i5-13420H 2.10Ghz
+      \item Pamięć RAM: 16GB DDR4
+      \item Karta graficzna: NVIDIA GeForce RTX 4050 Laptop GPU
+      \item Dysk: SSD 500GB
+      \item Java: openjdk-23 (Oracle OpenJDK 23.0.2)
+      \item Połączenie z bazą danych: mysql-connector-j-9.3.0
+      \item Baza danych: mySQL (środowisko phpMyAdmin – XAMPP Control Panel 3.3.0):
+      \begin{itemize}
+            \item Serwer: 127.0.0.1 via TCP/IP
+            \item Typ serwera: MariaDB
+            \item Połączenie z serwerem: SSL nie jest używany  
+            \item Wersja serwera: 10.4.32-MariaDB - mariadb.org binary distribution
+            \item Wersja protokołu: 10
+            \item Użytkownik: root@localhost
+            \item Kodowanie znaków serwera: UTF-8 Unicode (utf8mb4)
+            \item phpMyAdmin - Informacja o wersji: 5.2.1
+      \end{itemize}
+\end{itemize}
+
+\subsection{Wydajność}
+\label{wydajność}
+Aplikacja  została stworzona z myślą o komfortowym działaniu i płynnej obsłudze użytkownika. Przeprowadzone testy wykazały następujące cechy:
+\begin{itemize}
+      \item Czas uruchamiania aplikacji wynosi poniżej 3 sekund,
+      \item Czas logowania nie przekracza jednej sekundy,
+      \item Interfejs graficzny nie wykazuje żadnych opóźnień związanych z przełączaniem widoków lub przechodzeniem pomiędzy poszczególnymi funkcjami,
+      \item Aplikacja jest stabilna i obsługuje kompletny scenariusz użytkowania nie zależnie od roli bez błędów. Wszystkie funkcje wykonywane są płynnie i komfortowo.
+      \item Wyskakujące okno podczas otwiera się płynnie i nie obciąża komputera.
+      \item Po zalogowaniu aplikacja zużywa około 250 MB pamięci RAM.
+\end{itemize}
+System został zoptymalizowany pod kątem efektywnej pracy, a jego struktura pozwala na odpowiednią organizację danych oraz funkcjonalność. Zaprojektowana architektura pozwala na łatwe dodawania nowych funkcjonalności bez naruszania obecnej struktury.
+
+\subsection{Bezpieczeństwo}
+\label{bezpieczeństwo}
+System zawiera szereg rozwiązań zapewniających bezpieczeństwo danych oraz użytkownika podczas korzystania z aplikacji:
+\begin{itemize}
+      \item Każdy użytkownik posiada swoją unikalną nazwę użytkownika, co pozwala na jednoznaczną jego identyfikację
+      \item Użytkownicy posiadają hasło, które pozwala na logowanie się do systemu
+      \item Istnieje możliwość zmiany hasło w prosty sposób (przewidziana jest aktualizacja wprowadzająca dodatkowe zabezpieczenia podczas tego procesu)
+      \item Pola hasła zostały ukryte; użytkownik posiada jednak możliwość odsłonienia haseł za pomocą intuicyjnego przycisku.
+      \item Funkcje dostępne dla nauczyciela dostępne są po zalogowaniu się do systemu użytkownika posiadającego rolę nauczyciel.
+      \item Wszelkie procesy (dodawanie ocen, notatek, terminów itp.) kończą się komunikatem informującym o sukcesie lub błędzie wykonania,
+      \item Okna logowanie oraz zmiana hasła została wyposażona w odpowiednie alerty komunikujące przebieg działania. Dzięki temu np. podczas logowania użytkownik musi podać dokładną nazwę użytkownika oraz hasło, a podczas jego resetowania musi wprowadzić hasło dwukrotnie w celu jego potwierdzenia.
+      \item W całej strukturze aplikacji zastosowano obsługę błędów.
+\end{itemize}
+Aplikacja stworzona została z myślą o dalszym rozwoju pod kątem zabezpieczeń, a więc nie zamyka się ona na nowe możliwości zabezpieczeń takie jak weryfikacja dwuetapowe lub zmiana hasła za pomocą wysłania odpowiedniej wiadomości na adres e-mail przypisany do konta.
+
+
+\subsection{Użyteczność}
+\label{użyteczność}
+Aplikacja YLO GradeBook została zaprojektowana z myślą o prostocie i intuicyjności, tak aby mogły z niej swobodnie korzystać osoby o różnym poziomie doświadczenia pracy przy komputerze – zarówno dla nauczycieli, którzy przyzwyczajonych do tradycyjnych papierowych dzienników, jak i uczniów, którzy na co dzień korzystają z różnych aplikacji komputerowych.
+\begin{itemize}
+      \item Interfejs graficzny stworzony przy użyciu biblioteki JavaFX oparto na przejrzystym wyglądzie, z podziałem na zakładki umożliwiającymi przechodzenie pomiędzy widokami. 
+      \item Panel nawigacyjny znajdujący się po lewej stronie jest klarowny i prosty w obsłudze. Takie rozwiązanie pozwala na lepszą optymalizację, ponieważ nie jest wymagane uruchamianie nowych okien aplikacji.
+      \item Wszystkie kluczowe funkcje są dostępne w jednym oknie. W momencie dodawania danych do bazy pojawia się nowe okno, które nie obciąża systemu.
+      \item Wszystkie procesy zostały zaopatrzone w odpowiednie komunikaty, dzięki czemu użytkownik informowany jest o przebiegu działania, które w danej chwili podejmuje, co sprawia, że użytkownik posiada większą kontrolę i bezpieczeństwo.
+      \item System dostosowany jest do użytkownika w taki sposób, że najczęściej wykonywane działania są łatwo dostępne. Strona główna wyposażona jest w przyciski, które poprawiają automatyzację.
+\end{itemize}
+Wszystkie powyższe zabiegi sprawiają, że system jest czytelny dla każdego użytkownika, a nauczenie się go nie sprawia żadnych problemów, a korzystanie z niego to czysta przyjemność. Użyteczność aplikacji stanowi jeden z głównych atutów YLO GradeBook.
+
+\subsection{Skalowalność}
+\label{Skalowalność}
+Aplikacja YLO GradeBook została zaprojektowana w sposób umożliwiający łatwą rozbudowę, aby możliwe było szybkie dostosowanie się do potrzeb użytkowników. W związku z tym struktura cechuje się skalowalnością pod względem rozbudowy.
+\begin{itemize}
+      \item Struktura bazy danych jest przygotowana pod kątem rozbudowy i łatwej organizacji danych. Możliwe jest dodanie nowych tabel i relacji bez konieczności ingerowania w istniejące. W zależności od wymagań szkół możliwe jest dodanie nowej funkcjonalności jak np. zbieranie informacji o obecnościach czy też konwersacje pomiędzy uczniami i nauczycielami. Struktura bazy danych jest na to gotowa, więc przykładowe aktualizacje nie będę trudne do zaimplementowania.
+      \item Interfejs graficzny posiada taką architekturę, która pozwoli na dodawanie nowych zakładek, co pozwoli na nowe rozwiązania.
+      \item W przyszłości możliwe jest integrowanie aplikacji z zewnętrznymi systemami jak np. połączenie z pocztą elektroniczną.
+      \item Kod został zorganizowany w taki sposób, aby twórcy byli w stanie łatwo odnaleźć interesujący ich fragment i go zmodyfikować lub dodać nowe funkcjonalności.
+      \item Na ten moment aplikacja nie posiada możliwości zmiany rozmiaru okien, jednak jej budowa pozwala na łatwe wprowadzenie tej opcji w przyszłości.
+\end{itemize}
+Dzięki tym cechom możliwa jest skalowalność aplikacji i jej dalszy rozwój pod kątem spełniania oczekiwań użytkowników. Zorganizowana architektura jest elastyczna, co sprawia, że kod nie będzie potrzebował gruntownej przebudowy.
+\newpage
+\subsection{Integralność danych}
+\label{integralnośćDanych}
+W projekcie YLO GradeBook zachowanie integralności danych stanowi jeden z kluczowych aspektów działania systemu. Wdrożono takie rozwiązania, aby zapewnić spójność danych i zminimalizować prawdopodobieństwo wystąpienia błędów.
+\begin{itemize}
+      \item Wszystkie dane, które wprowadzane do bazy danych przechodzą podstawową walidację po stronie aplikacji (np. wymagane pola, limity znaków, typy danych),
+      \item Aplikacja posiada zautomatyzowane dodawanie danych, w taki sposób, aby użytkownik nie musiał ręcznie wpisywać niektórych informacji. Wystarczy, że wybierze on jedną z opcji, co ogranicza możliwość wprowadzania błędnych danych i konieczności walidacji,
+      \item Wartości danych są ograniczone logicznie (np. oceny od 1.0 do 6.0, punkty w przypadku dodawania uwag to liczby całkowite),
+      \item Baza danych wykorzystuje klucze główne i obce, co pozwalana na powiązania relacyjne między encjami,
+      \item Operacje zapisu i aktualizacji w bazie danych wykorzystują odpowiednio przemyślanie zapytania w języku SQL z parametrami przekazywanymi w aplikacji. Wszystkie metody realizujące zadania tego typu zaopatrzone są w odpowiednią obsługę błędów,
+      \item Dla kluczowych operacji zastosowano system wyświetlających się komunikatów o przebiegu operacji,
+      \item Dzięki odpowiednio przemyślanej strukturze bazy danych możliwe jest odpowiednie pobieranie danych oraz ich wyświetlanie w zależności od spełnionych wymagań
+
+\end{itemize}
+Dzięki tym mechanizmom YLO GradeBook zapewnia wysoki poziom spójności danych, co zapewnia dokładność danych – ma to kluczowe znaczenie w środowisku szkolnym.
+
+
+
+

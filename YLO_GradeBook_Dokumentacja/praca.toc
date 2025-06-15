@@ -1,0 +1,65 @@
+\babel@toc {polish}{}\relax 
+\contentsline {chapter}{\numberline {1}Wprowadzenie}{7}{chapter.1}%
+\contentsline {chapter}{\numberline {2}Opis założeń projektu}{8}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Cel projektu}{8}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Sposób realizacji projektu}{8}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Wymagania funkcjonalne}{9}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}Logowanie}{9}{subsection.2.3.1}%
+\contentsline {subsection}{\numberline {2.3.2}Funkcjonalność dla grupy nauczyciel}{9}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.3.3}Funkcjonalność dla grupy uczeń}{10}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Opis poszczególnych danych}{10}{subsection.2.3.4}%
+\contentsline {subsubsection}{\numberline {2.3.4.1}Oceny}{10}{subsubsection.2.3.4.1}%
+\contentsline {subsubsection}{\numberline {2.3.4.2}Notatki osobiste}{11}{subsubsection.2.3.4.2}%
+\contentsline {subsubsection}{\numberline {2.3.4.3}Uwagi}{11}{subsubsection.2.3.4.3}%
+\contentsline {subsubsection}{\numberline {2.3.4.4}Terminy}{11}{subsubsection.2.3.4.4}%
+\contentsline {section}{\numberline {2.4}Wymagania niefunkcjonalne}{12}{section.2.4}%
+\contentsline {subsection}{\numberline {2.4.1}Środowisko testowe}{12}{subsection.2.4.1}%
+\contentsline {subsection}{\numberline {2.4.2}Wydajność}{12}{subsection.2.4.2}%
+\contentsline {subsection}{\numberline {2.4.3}Bezpieczeństwo}{13}{subsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.4.4}Użyteczność}{13}{subsection.2.4.4}%
+\contentsline {subsection}{\numberline {2.4.5}Skalowalność}{14}{subsection.2.4.5}%
+\contentsline {subsection}{\numberline {2.4.6}Integralność danych}{15}{subsection.2.4.6}%
+\contentsline {chapter}{\numberline {3}Opis struktury projektu}{16}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Wykorzystane technologie}{16}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Baza danych}{17}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Struktura encji i relacje}{17}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Opis tabel}{18}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Relacje między tabelami}{20}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Struktura aplikacji}{21}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Struktura pakietów w projekcie}{21}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Opis zaimplementowanych klas}{21}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Modele}{23}{subsection.3.3.3}%
+\contentsline {subsection}{\numberline {3.3.4}Widoki graficzne (FXML)}{24}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}Pozostałe zasoby}{25}{subsection.3.3.5}%
+\contentsline {chapter}{\numberline {4}Harmonogram realizacji projektu}{26}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Etapy realizacji oraz wykres Gantta}{26}{section.4.1}%
+\contentsline {section}{\numberline {4.2}System kontroli wersji i repozytorium projektu}{26}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Prezentacja warstwy użytkowej projektu}{27}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Opis szaty graficznej interfejsu}{27}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Prezentacja głównych widoków interfejsu użytkownika}{27}{section.5.2}%
+\contentsline {subsection}{\numberline {5.2.1}Okno logowania}{28}{subsection.5.2.1}%
+\contentsline {subsection}{\numberline {5.2.2}Okno resetowania hasła}{29}{subsection.5.2.2}%
+\contentsline {subsection}{\numberline {5.2.3}Główne okno interfejsu ucznia}{30}{subsection.5.2.3}%
+\contentsline {subsubsection}{\numberline {5.2.3.1}Zakładka „Oceny”}{31}{subsubsection.5.2.3.1}%
+\contentsline {subsubsection}{\numberline {5.2.3.2}Zakładka „Terminarz”}{31}{subsubsection.5.2.3.2}%
+\contentsline {subsubsection}{\numberline {5.2.3.3}Zakładka „Uwagi”}{32}{subsubsection.5.2.3.3}%
+\contentsline {subsection}{\numberline {5.2.4}Główne okno interfejsu nauczyciela}{33}{subsection.5.2.4}%
+\contentsline {subsubsection}{\numberline {5.2.4.1}Zakładka „Oceny”}{34}{subsubsection.5.2.4.1}%
+\contentsline {subsection}{\numberline {5.2.5}Pozostałe zakładki}{35}{subsection.5.2.5}%
+\contentsline {subsubsection}{\numberline {5.2.5.1}Zakładka „Notatki”}{35}{subsubsection.5.2.5.1}%
+\contentsline {subsubsection}{\numberline {5.2.5.2}Zakładka „Konto”}{36}{subsubsection.5.2.5.2}%
+\contentsline {subsubsection}{\numberline {5.2.5.3}Zakładka „Ustawienia”}{36}{subsubsection.5.2.5.3}%
+\contentsline {subsection}{\numberline {5.2.6}Widok okna PopUp}{37}{subsection.5.2.6}%
+\contentsline {subsubsection}{\numberline {5.2.6.1}Okno PopUp – Dodawanie oceny}{38}{subsubsection.5.2.6.1}%
+\contentsline {subsubsection}{\numberline {5.2.6.2}Okno PopUp – Dodawanie terminów}{39}{subsubsection.5.2.6.2}%
+\contentsline {subsubsection}{\numberline {5.2.6.3}Okno PopUp – Dodawanie uwag}{40}{subsubsection.5.2.6.3}%
+\contentsline {subsubsection}{\numberline {5.2.6.4}Okno PopUp – Dodawanie notatek}{41}{subsubsection.5.2.6.4}%
+\contentsline {section}{\numberline {5.3}Mechanizm alertów systemowych}{42}{section.5.3}%
+\contentsline {chapter}{\numberline {6}Podsumowanie}{43}{chapter.6}%
+\contentsline {chapter}{\numberline {7}Instrukcja uruchomienia plikacji YLO GradeBook}{44}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Wymagania środowiskowe}{44}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Baza danych}{45}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Kroki uruchomienia projektu YLO GradeBook}{45}{section.7.3}%
+\contentsline {section}{\textbf {Bibliografia}}{47}{Item.8}%
+\contentsline {section}{\textbf {Spis rysunków}}{48}{chapter*.20}%
+\contentsline {section}{\textbf {Oświadczenie studenta o samodzielności pracy}}{49}{chapter*.21}%

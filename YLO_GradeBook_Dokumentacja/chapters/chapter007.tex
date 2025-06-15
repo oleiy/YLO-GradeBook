@@ -1,0 +1,123 @@
+\chapter{Instrukcja uruchomienia plikacji YLO GradeBook}
+\label{cha:instrukcja}
+
+
+\section{Wymagania środowiskowe}
+
+Do poprawnego uruchomienia aplikacji \texttt{YLO GradeBook} wymagane jest przygotowanie środowiska zgodnie z poniższymi specyfikacjami programowymi:
+
+\begin{itemize}
+    \item \textbf{Środowisko JDK:} \texttt{OpenJDK 23.0.2} (Oracle)
+    \item \textbf{JavaFX SDK:} wersja 23 (dołączona lokalnie do projektu)
+    \item \textbf{IDE:} IntelliJ IDEA Community Edition 2024.3.3
+    \item \textbf{Sterownik JDBC:} \texttt{mysql-connector-j-9.3.0}
+    \item \textbf{Baza danych:} MariaDB 10.4.32 (środowisko \texttt{phpMyAdmin 5.2.1})
+    \item \textbf{Panel sterowania:} \texttt{XAMPP Control Panel 3.3.0}
+\end{itemize}
+
+\textbf{Uwaga:} Domyślnym użytkownikiem serwera bazy danych jest \texttt{root}, a hasło pozostaje puste (\texttt{""}), zgodnie z domyślną konfiguracją XAMPP.
+
+\subsubsection*{Zainstalowane wtyczki środowiska IntelliJ IDEA}
+
+W trakcie pracy nad aplikacją wykorzystano kilka rozszerzeń środowiska IntelliJ IDEA. Poniżej zestawiono je z podziałem na wtyczki wymagane do poprawnego działania aplikacji oraz te, które służyły jedynie do wsparcia procesu implementacji lub dokumentacji.
+
+\textbf{Wymagane do działania aplikacji:}
+\begin{itemize}
+    \item \textbf{JavaFX Runtime for Plugins} — wersja \texttt{1.0.4} \\
+    (Źródło: JetBrains) \\
+    Wtyczka niezbędna do uruchamiania komponentów \texttt{JavaFX}w środowisku IntelliJ.
+\end{itemize}
+
+\textbf{Wykorzystane pomocniczo (opcjonalne):}
+\begin{itemize}
+    \item \textbf{PlantUML Integration} — wersja \texttt{7.11.2-IJ2023.2} \\
+    (Autorzy: Eugene Steinberg, Vojtech Krasa) \\
+    Umożliwiła stworzenie diagramu klas systemu w postaci graficznej (rozdział 3).
+
+    \item \textbf{PlantUML Parser} — wersja \texttt{0.0.9} \\
+    (Autor: shuzijun) \\
+    Parser współpracujący z powyższą wtyczką, pomocny przy generowaniu diagramu UML.
+
+    \item \textbf{GitHub Copilot} — wersja \texttt{1.5.46-243} \\
+    (Źródło: GitHub) \\
+    Używana jako wsparcie przy pisaniu kodu, jednak nie jest wymagana do kompilacji ani działania aplikacji.
+\end{itemize}
+
+
+\section{Baza danych}
+
+\begin{itemize}
+    \item Do repozytorium dołączony jest plik \texttt{gradebook\_data\_base.sql}, który zawiera strukturę i przykładowe dane bazy danych.
+    \item Po uruchomieniu serwera MySQL, należy zaimportować bazę danych do środowiska \texttt{phpMyAdmin}.
+    \item Domyślny użytkownik: \texttt{root} \quad Hasło: *(puste lub zgodne z konfiguracją lokalną)*
+    \item Po zaimportowaniu bazy danych należy upewnić się, że jej nazwa to \texttt{gradebook\_data\_base}, zgodnie z konfiguracją aplikacji w klasie DataBaseConnection.
+\end{itemize}
+
+\section{Kroki uruchomienia projektu YLO GradeBook}
+
+Poniżej przedsatwiono listę kroków, prowadzącą do uruchomienia aplikacji.
+
+\vspace{6pt}
+\textbf{1. Klonowanie projektu z GitHub}
+
+\begin{enumerate}
+    \item Przejdź do repozytorium projektu: \\
+    \texttt{https://github.com/oleiy/YLO-GradeBook}
+    \item Pobierz repozytorium lokalnie, wykonując: \\
+    \texttt{git clone https://github.com/oleiy/YLO-GradeBook}
+    \item Otwórz folder projektu w środowisku \texttt{IntelliJ IDEA Community Edition 2024.3.3}
+\end{enumerate}
+
+\vspace{6pt}
+\textbf{2. Konfiguracja środowiska Java i JavaFX}
+
+\begin{enumerate}
+    \item Skonfiguruj środowisko zgodnie z powyższą specyfikacją.
+\end{enumerate}
+
+\vspace{6pt}
+\textbf{3. Dodanie sterownika JDBC}
+
+\begin{enumerate}
+    \item Umieść folder \texttt{mysql-connector-j-9.3.0} w katalogu projektu (dołączony do repozytorium)
+    \item Dodaj go jako bibliotekę do projektu w \texttt{Project Structure → Modules}
+\end{enumerate}
+
+\vspace{6pt}
+\textbf{4. Import bazy danych MySQL (phpMyAdmin)}
+
+\begin{itemize}
+    \item Uruchom środowisko \texttt{XAMPP Control Panel 3.3.0} i wystartuj moduł \texttt{MySQL}
+    \item Otwórz \texttt{phpMyAdmin} w przeglądarce (\texttt{http://localhost/phpmyadmin})
+    \item Utwórz nową bazę danych o nazwie \texttt{gradebook\_data\_base}
+    \item Zaimportuj plik \texttt{gradebook\_data\_base.sql} z repozytorium
+    \item Domyślny użytkownik: \texttt{root}, hasło: (puste)
+\end{itemize}
+
+\vspace{6pt}
+\textbf{5. Uruchomienie aplikacji}
+
+\begin{enumerate}
+    \item Kliknij przycisk \texttt{Run} znajdując się w klasie Main.java
+    \item Aplikacja otworzy ekran logowania
+\end{enumerate}
+
+\vspace{6pt}
+\textbf{6. Dane testowe (do logowania)}
+
+\begin{itemize}
+    \item \textbf{Nauczyciel:} 
+    \begin{itemize}
+    \item nazwa użytkownika:\texttt{jan.nowak} 
+    \item hasło: \texttt{jan}
+    \end{itemize}
+    \item \textbf{Uczeń:} 
+    \begin{itemize}
+    \item nazwa użytkownika:\texttt{igor.lis} 
+    \item hasło: \texttt{igor}
+    \end{itemize}
+\end{itemize}
+
+
+\vspace{6pt}
+Po wykonaniu powyższych kroków środowisko programistyczne jest gotowe do pracy projektu YLO GradeBook. W przypadku trudności zaleca się weryfikację konfiguracji JavaFX oraz parametrów połączenia z bazą danych w klasie DataBaseConnection.
