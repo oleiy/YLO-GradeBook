@@ -1,0 +1,48 @@
+@startuml
+
+title Diagram klas – YLO GradeBook
+
+top to bottom direction
+
+skinparam classAttributeIconSize 0
+skinparam dpi 200
+skinparam style strictuml
+
+package models {
+    class Subject
+    class NegativeNote
+    class Users
+    class StudentGrade
+    class Deadlines
+    class Note
+    class Grade
+    class Classes
+}
+
+package com.ylo.ylo_gradebook_v1 {
+class Main
+class DataBaseConnection
+class Session
+abstract class SessionController
+class MainWindow
+class ViewLoadingManager
+class PopUpWindow
+class LoginWindow
+class PasswordReset
+class StudentWindow
+class TeacherWindow
+
+interface AuthenticationInterface
+}
+
+
+' Dziedziczenie
+SessionController <|-- LoginWindow
+SessionController <|-- PasswordReset
+SessionController <|-- StudentWindow
+SessionController <|-- TeacherWindow
+
+AuthenticationInterface <|.. LoginWindow
+AuthenticationInterface <|.. PasswordReset
+
+@enduml
